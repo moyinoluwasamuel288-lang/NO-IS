@@ -838,3 +838,33 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('%c[ Portfolio loaded ]', 'color:#9dff59;font-family:monospace;font-size:14px;');
   console.log('%cEdit the PROJECTS array in script.js to add your own projects!', 'color:#59ffda;font-family:monospace;');
 });
+// NOESIS LETTER ANIMATION
+
+const letters = ["E", "Σ"];
+let index = 0;
+
+const navE = document.getElementById("e-letter");
+const heroE = document.getElementById("e-letter-hero");
+
+function animateE() {
+  index = (index + 1) % letters.length;
+
+  if (navE) navE.textContent = letters[index];
+  if (heroE) heroE.textContent = letters[index];
+}
+
+// Start after slight delay
+setTimeout(() => {
+  setInterval(animateE, 2500);
+}, 1500);
+
+// Hover effect (force Σ)
+if (navE) {
+  navE.parentElement.addEventListener("mouseenter", () => {
+    navE.textContent = "Σ";
+  });
+
+  navE.parentElement.addEventListener("mouseleave", () => {
+    navE.textContent = letters[index];
+  });
+}
